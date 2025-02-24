@@ -27,11 +27,11 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
       malaysia_stock_price
       ├── credentials.json (here)
       ├── README.md
-      ├── package.json
-      ├── stock_price_fetcher/
-      │   ├── __init__.py
-      │   ├── config.json
-      │   └── utilsfetch_stock_data.py
+      ├── config.json
+      ├── requirements.txt
+      ├── setup_venv.bat
+      └── setup_venv.sh
+   ```
 
 ## Setup
 1. Clone the repository:
