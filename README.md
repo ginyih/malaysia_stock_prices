@@ -21,6 +21,15 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
    - If you have Python 3.3 or later, `venv` is already included. If you're using an earlier version, proceed below:
       - Open command prompt and type `pip install virtualenv` to install venv.
 
+4. Enable Google APIs (Google Drive and Google Sheet), create a Service Account, and acquire credentials JSON file. Please refer to the bottom section on how to.
+   - Rename the credentials JSON file you downloaded from Google to `credentials.json`. 
+
+5. Share Your Google Sheet with the Service Account you created:
+   - Open your Google Sheet.
+   - Click the **Share** button in the top-right corner.
+   - Enter the service account's email (from the `client_email` field of the `credentials.json` file) or just copy from your [Google Cloud Console](https://console.developers.google.com/).
+   - Set the permissions to **Editor** and Send.
+
 ## Setup
 1. Clone the repository by typing this in Command Prompt:
    ```
@@ -58,25 +67,7 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
       source venv/bin/activate
       ```
 
-5. Acquire your Google `credentials.json` file. Refer to `How to acquire your Google credentials.json` section below.
-   - Place your credentials.json in this project's root path (whereever in your disk location you chose to clone this project on):
-   ```bash
-      malaysia_stock_price
-      ├── credentials.json (here)
-      ├── README.md
-      ├── config.json
-      ├── requirements.txt
-      ├── setup_venv.bat
-      └── setup_venv.sh
-   ```
-
-6. Share Your Google Sheet with the Service Account:
-   - Open your Google Sheet.
-   - Click the **Share** button in the top-right corner.
-   - Enter the service account’s email (from the `client_email` field of the `credentials.json` file).
-   - Set the permissions to **Editor** and Send.
-
-7. Finally to run the script by running the following command:
+4. Finally to run the script by running the following command:
    ```bash
    python fetch.py
    ```
