@@ -5,9 +5,9 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
 1. Make sure you have Python 3 installed:
    - Open Command Prompt by pressing `Windows + R`, typing `cmd`, and hitting Enter.
    - Type `python --version` and press Enter. This will show the installed version of Python (if any).
-      - If Python is installed, you should see the version number (e.g., `Python 3.x.x`).
-      - If Python is not installed, you can download and install it from the [official Python website](https://www.python.org/downloads/).
-      - 
+      - If Python is installed, you should see the version number (e.g., `Python x.x.x`).
+      - If Python is not installed, you can download and install it from the [Python](https://www.python.org/downloads/).
+
 2. Ensure `pip` is installed:
    - Python 3.4 and later versions come with `pip` installed by default. So, after installing Python, you should already have `pip` available.
    - You can check if `pip --version` is installed by typing in the Command Prompt. This will show installed version of pip.
@@ -16,27 +16,49 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
       - Open Command Prompt where you downloaded `get-pip.py`.
       - Navigate to the folder where `get-pip.py` is located, or use the full path to the script.
       - Run the following command `python get-pip.py`
-      - 
+
 3. Ensure `venv` is installed (Note: You will need pip for this as mentioned on step 2 above):
    - If you have Python 3.3 or later, `venv` is already included. If you're using an earlier version, proceed below:
       - Open command prompt and type `pip install virtualenv` to install venv.
-      - 
 
 ## Setup
-1. Clone the repository:
-   ```bash
+1. Clone the repository by typing this in Command Prompt:
+   ```
    git clone https://github.com/ginyih/malaysia_stock_prices.git
+   ```
+
+2. Change to the project directory (the one you just cloned from step 1 above) by typing this in Command Prompt:
+   ```
    cd malaysia_stock_prices
-2. Setup virtual environment by running the following command:
-   - Window: `./setup_venv.bat`
-   - Linux: `./setup_venv.sh`
+   ```
 
-3. Activate virtual environment by running the following command:
-   - Window Command Prompt: `./venv/Scripts/activate.bat`
-   - Window Power Shell: `./venv/Scripts/activate.ps1`
-   - Linux: `source venv/bin/activate`
+2. Setup virtual environment (venv) by typing this in Command Prompt:
+   - Windows:
+      - Command Prompt / Power Shell:
+      ```
+      ./setup_venv.bat
+      ```
+   - Linux:
+      ```
+      ./setup_venv.sh
+      ```
 
-4. Acquire your Google `credentials.json` file. Refer to `How to acquire your Google credentials.json` section below.
+3. Activate virtual environment (venv) by typing this in Command Prompt:
+   - Windows:
+      - Command Prompt:
+      ```
+      ./venv/Scripts/activate.bat
+      ```
+      - Power Shell:
+      ```
+      ./venv/Scripts/activate.ps1
+      ```
+   - Linux:
+      ```
+      source venv/bin/activate
+      ```
+
+5. Acquire your Google `credentials.json` file. Refer to `How to acquire your Google credentials.json` section below.
    - Place your credentials.json in this project's root path (whereever in your disk location you chose to clone this project on):
    ```bash
       malaysia_stock_price
@@ -47,15 +69,17 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
       ├── setup_venv.bat
       └── setup_venv.sh
    ```
-5. Share Your Google Sheet with the Service Account:
+
+6. Share Your Google Sheet with the Service Account:
    - Open your Google Sheet.
    - Click the **Share** button in the top-right corner.
    - Enter the service account’s email (from the `client_email` field of the `credentials.json` file).
    - Set the permissions to **Editor** and Send.
 
-6. Finally to run the script by running the following command:
+7. Finally to run the script by running the following command:
    ```bash
    python fetch.py
+   ```
 
 ## How to acquire your Google `credentials.json`
 1. **Go to Google Cloud Console**:
