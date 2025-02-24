@@ -83,6 +83,9 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
    python fetch.py
    ```
 
+## Note
+After setting everything up, on every consecutive script run you just have to start from `Setup` point 3 (activate venv) and then point 4 (execute fetch.py)
+
 ## How to acquire your Google `credentials.json`
 1. **Go to Google Cloud Console**:
    - Visit the [Google Cloud Console](https://console.developers.google.com/).
