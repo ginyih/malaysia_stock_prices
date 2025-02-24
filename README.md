@@ -39,17 +39,14 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
    git clone https://github.com/ginyih/malaysia_stock_prices.git
    cd malaysia_stock_prices
 2. Setup virtual environment by running the following command:
-   ```bash
-   ./setup_venv.bat
-   or
-   ./setup_venv.sh (if you are using Linux/macOs)
+   - Window: `./setup_venv.bat`
+   - Linux: `./setup_venv.sh`
+
 3. Activate virtual environment by running the following command:
-   ```bash
-   ./venv/Scripts/activate.bat (if standard Window Command Prompt)
-   or
-   ./venv/Scripts/activate.ps1 (if using Window PowerShell)
-   or
-   source venv/bin/activate (if using Linux)
+   - Window Command Prompt: `./venv/Scripts/activate.bat`
+   - Window Power Shell: `./venv/Scripts/activate.ps1`
+   - Linux: `source venv/bin/activate`
+   
 4. Finally to run the script by running the following command:
    ```bash
    python fetch.py
