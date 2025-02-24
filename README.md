@@ -52,7 +52,7 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
       └── setup_venv.sh
    ```
 
-2. Setup virtual environment (venv) by typing this in Command Prompt:
+4. Setup virtual environment (venv) by typing this in Command Prompt:
    - Windows:
       - Command Prompt / Power Shell:
       ```
@@ -63,7 +63,7 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
       ./setup_venv.sh
       ```
 
-3. Activate virtual environment (venv) by typing this in Command Prompt:
+5. Activate virtual environment (venv) by typing this in Command Prompt:
    - Windows:
       - Command Prompt:
       ```
@@ -78,15 +78,15 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
       source venv/bin/activate
       ```
 
-4. Finally to run the script by running the following command:
+6. Finally to run the script by running the following command:
    ```bash
    python fetch.py
    ```
 
 ## Note
 After setting everything up, on every consecutive script run you just have to start from:
-   - Activate venv from step 3 above.
-   - Execute fetch.py from step 4 above.
+   - Activate venv from step 5 above.
+   - Execute fetch.py from step 6 above.
    ```
    ./venv/Scripts/activate.bat
    python fetch.py
