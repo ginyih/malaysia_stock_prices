@@ -94,7 +94,7 @@ def main():
     client = authenticate_google_sheets()
     
     # Open your sheet (replace with your actual sheet name)
-    sheet = client.open(GOOGLE_SHEET_NAME).sheet1  # Make sure the sheet is shared with the service account email
+    sheet = client.open(SHEET_NAME).sheet1  # Make sure the sheet is shared with the service account email
     
     # Get stock names from google sheet (column 1)
     stock_tickers = get_stock_symbols(sheet, STOCK_NAME_COLUMN_INDEX, STOCK_TICKERS)
