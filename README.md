@@ -65,7 +65,7 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
    - Set up the service account (provide a name, and select the **Editor** role, or a more restrictive role like **Viewer**).
    - Once the service account is created, click on it to manage the account.
    - Under the **Keys** section, click **Add Key** → **Create new key** and choose **JSON** as the key type.
-   - The JSON file will automatically download to your computer. Place the JSON file directly in the root project.
+   - The JSON file will automatically download to your computer. Rename the JSON file to `credentials.json` and place it directly in the root project.
 5. **Share Your Google Sheet with the Service Account**:
    - Open your Google Sheet.
    - Click the **Share** button in the top-right corner.
