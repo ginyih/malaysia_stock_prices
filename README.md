@@ -41,6 +41,17 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
    cd malaysia_stock_prices
    ```
 
+3. Place your `credentials.json` file you downloaded from step 4 of `Prerequisites` above within the project directory you just cloned:
+   ```
+      malaysia_stock_price
+      ├── credentials.json (here)
+      ├── README.md
+      ├── config.json
+      ├── requirements.txt
+      ├── setup_venv.bat
+      └── setup_venv.sh
+   ```
+
 2. Setup virtual environment (venv) by typing this in Command Prompt:
    - Windows:
       - Command Prompt / Power Shell:
