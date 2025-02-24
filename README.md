@@ -21,17 +21,6 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
    - If you have Python 3.3 or later, `venv` is already included. If you're using an earlier version, proceed below:
       - Open command prompt and type `pip install virtualenv` to install venv.
       - 
-4. Acquire your Google `credentials.json` file. Refer to `How to acquire your Google credentials.json` section below.
-   - Place your credentials.json in this project's root path (whereever in your disk location you chose to clone this project on):
-   ```bash
-      malaysia_stock_price
-      ├── credentials.json (here)
-      ├── README.md
-      ├── config.json
-      ├── requirements.txt
-      ├── setup_venv.bat
-      └── setup_venv.sh
-   ```
 
 ## Setup
 1. Clone the repository:
@@ -46,8 +35,25 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
    - Window Command Prompt: `./venv/Scripts/activate.bat`
    - Window Power Shell: `./venv/Scripts/activate.ps1`
    - Linux: `source venv/bin/activate`
-   
-4. Finally to run the script by running the following command:
+
+4. Acquire your Google `credentials.json` file. Refer to `How to acquire your Google credentials.json` section below.
+   - Place your credentials.json in this project's root path (whereever in your disk location you chose to clone this project on):
+   ```bash
+      malaysia_stock_price
+      ├── credentials.json (here)
+      ├── README.md
+      ├── config.json
+      ├── requirements.txt
+      ├── setup_venv.bat
+      └── setup_venv.sh
+   ```
+5. Share Your Google Sheet with the Service Account:
+   - Open your Google Sheet.
+   - Click the **Share** button in the top-right corner.
+   - Enter the service account’s email (from the `client_email` field of the `credentials.json` file).
+   - Set the permissions to **Editor** and Send.
+
+6. Finally to run the script by running the following command:
    ```bash
    python fetch.py
 
@@ -66,8 +72,3 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
    - Once the service account is created, click on it to manage the account.
    - Under the **Keys** section, click **Add Key** → **Create new key** and choose **JSON** as the key type.
    - The JSON file will automatically download to your computer. Rename the JSON file to `credentials.json` and place it directly in the root project.
-5. **Share Your Google Sheet with the Service Account**:
-   - Open your Google Sheet.
-   - Click the **Share** button in the top-right corner.
-   - Enter the service account’s email (from the `client_email` field of the `credentials.json` file).
-   - Set the permissions to **Editor** or **Viewer**, depending on your needs.
