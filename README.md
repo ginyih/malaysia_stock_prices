@@ -63,7 +63,7 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
       ./setup_venv.sh
       ```
 
-5. Activate virtual environment (venv) by typing this in Command Prompt:
+5. Activate virtual environment (venv) by typing this in Command Prompt (only choose one depending on your OS, and if Windows then either Command Prompt or Power Shell depending on your terminal of choice):
    - Windows:
       - Command Prompt:
       ```
