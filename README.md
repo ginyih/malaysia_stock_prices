@@ -40,13 +40,15 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
    cd malaysia_stock_prices
 2. Setup virtual environment by running the following command:
    ```bash
-   ./setup_venv.sh
-   or 
-   ./setup_venv.bat (if you are using Windows)
+   ./setup_venv.bat
+   or
+   ./setup_venv.sh (if you are using Linux/macOs)
 3. Activate virtual environment by running the following command:
    ```bash
    ./venv/Scripts/activate.bat (if standard Window Command Prompt)
+   or
    ./venv/Scripts/activate.ps1 (if using Window PowerShell)
+   or
    source venv/bin/activate (if using Linux)
 4. Finally to run the script by running the following command:
    ```bash
