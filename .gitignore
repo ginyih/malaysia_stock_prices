@@ -1,0 +1,9 @@
+# Ignore credentials
+credentials.json
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore environment files (if using virtualenv or similar)
+venv/

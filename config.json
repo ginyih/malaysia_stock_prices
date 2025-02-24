@@ -1,0 +1,30 @@
+{
+    "GOOGLE_SHEET_NAME": "Malaysia Stock Prices",
+    "STOCK_NAME_COLUMN_INDEX": 2,
+    "STOCK_PRICE_COLUMN_INDEX": 10,
+    "STOCK_TICKERS": {
+        "CIMB": "1023.KL",
+        "BURSA": "^KLSE",
+        "POH KONG": "5080.KL",
+        "PUBLIC BANK": "1295.KL",
+        "SUPERMAX": "7106.KL",
+        "TOP GLOVE": "7113.KL",
+        "IGB REIT": "5299.KL",
+        "SUNWAY REIT": "5176.KL",
+        "PAVILION REIT": "5212.KL",
+        "YTL REIT": "5109.KL",
+        "CARLSBERG": "2836.KL",
+        "KLCC REIT": "5235SS.KL",
+        "HEINEKEN": "3255.KL",
+        "HARTALEGA": "5168.KL",
+        "SUNWAY PA": "5211PA.KL",
+        "MYEG": "0138.KL",
+        "SCOMNET": "0001.KL",
+        "JF TECH": "0146.KL",
+        "D&O": "7204.KL",
+        "MAYBANK": "1155.KL",
+        "AGMO": "0258.KL",
+        "SCGBHD": "0225.KL",
+        "YTLPOWR": "6742.KL"
+    }
+}
