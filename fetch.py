@@ -95,22 +95,25 @@ def main():
     # Authenticate and get the Google Sheets client
     client = authenticate_google_sheets()
     
-    # Open your sheet (replace with your actual sheet name)
+    # Initialize the correct sheet by tab name
     sheet = None
     all_sheets = client.open(SHEET_NAME)  # Open the spreadsheet by name
     for sheet_tab in all_sheets.worksheets():
-        if sheet_tab.title == SHEET_TAB_NAME:
+        if sheet_tab.title == "A":
             sheet = sheet_tab
             break
-    
-    # Get stock names from google sheet (column 1)
-    stock_tickers = get_stock_symbols(sheet, STOCK_NAME_COLUMN_INDEX, STOCK_TICKERS)
 
-    # Fetch the stock prices
-    stock_prices = fetch_stock_prices(stock_tickers)
+    if sheet:
+        # Get stock names from google sheet (column 1)
+        stock_tickers = get_stock_symbols(sheet, STOCK_NAME_COLUMN_INDEX, STOCK_TICKERS)
 
-    # Update Google Sheets
-    update_google_sheet(sheet, STOCK_PRICE_COLUMN_INDEX, stock_prices)
+        # Fetch the stock prices
+        stock_prices = fetch_stock_prices(stock_tickers)
+
+        # Update Google Sheets
+        update_google_sheet(sheet, STOCK_PRICE_COLUMN_INDEX, stock_prices)
+    else:
+        raise KeyError(f'Tab "{SHEET_TAB_NAME}" does not exist!')
 
 
 if __name__ == "__main__":
