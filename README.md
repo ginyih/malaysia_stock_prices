@@ -2,13 +2,16 @@
 Fetches the latest stock prices of Malaysian stocks and stores them in a Google Sheet.
 
 ## Prerequisites
-1. Make sure you have Python 3 installed:
+1. Make sure you have `git` installed:
+   - You can download and install it from the [git](https://git-scm.com/downloads/win).
+
+2. Make sure you have Python 3 installed:
    - Open Command Prompt by pressing `Windows + R`, typing `cmd`, and hitting Enter.
    - Type `python --version` and press Enter. This will show the installed version of Python (if any).
       - If Python is installed, you should see the version number (e.g., `Python x.x.x`).
       - If Python is not installed, you can download and install it from the [Python](https://www.python.org/downloads/).
 
-2. Ensure `pip` is installed:
+3. Ensure `pip` is installed:
    - Python 3.4 and later versions come with `pip` installed by default. So, after installing Python, you should already have `pip` available.
    - You can check if `pip --version` is installed by typing in the Command Prompt. This will show installed version of pip.
    - If `pip` is not installed or you want to reinstall it, follow these steps:
@@ -17,14 +20,14 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
       - Navigate to the folder where `get-pip.py` is located, or use the full path to the script.
       - Run the following command `python get-pip.py`
 
-3. Ensure `venv` is installed (Note: You will need pip for this as mentioned on step 2 above):
+4. Ensure `venv` is installed (Note: You will need pip for this as mentioned on step 2 above):
    - If you have Python 3.3 or later, `venv` is already included. If you're using an earlier version, proceed below:
       - Open command prompt and type `pip install virtualenv` to install venv.
 
-4. Enable Google APIs (Google Drive and Google Sheet), create a Service Account, and acquire credentials JSON file. Please refer to the bottom section on how to.
+5. Enable Google APIs (Google Drive and Google Sheet), create a Service Account, and acquire credentials JSON file. Please refer to the bottom section on how to.
    - Rename the credentials JSON file you downloaded from Google to `credentials.json`. 
 
-5. Share Your Google Sheet with the Service Account you created:
+6. Share Your Google Sheet with the Service Account you created:
    - Open your Google Sheet.
    - Click the **Share** button in the top-right corner.
    - Enter the service account's email (from the `client_email` field of the `credentials.json` file) or just copy from your [Google Cloud Console](https://console.developers.google.com/).
