@@ -99,7 +99,7 @@ def main():
     sheet = None
     all_sheets = client.open(SHEET_NAME)  # Open the spreadsheet by name
     for sheet_tab in all_sheets.worksheets():
-        if sheet_tab.title == "A":
+        if sheet_tab.title == SHEET_TAB_NAME:
             sheet = sheet_tab
             break
 
