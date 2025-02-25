@@ -1,6 +1,6 @@
 {
     "GOOGLE_SHEET_NAME": "Malaysia Stock Prices",
-    "SHEET_TAB_NAME": "A",
+    "SHEET_TAB_NAME": "Sheet1",
     "STOCK_NAME_COLUMN_INDEX": 2,
     "STOCK_PRICE_COLUMN_INDEX": 11,
     "STOCK_TICKERS": {
