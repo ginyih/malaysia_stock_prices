@@ -1,6 +1,8 @@
 import yfinance as yf
 import gspread
 import json
+
+from collections import OrderedDict
 from oauth2client.service_account import ServiceAccountCredentials
 
 
@@ -27,18 +29,19 @@ def fetch_stock_prices(stock_datas):
     stock_prices = {}
     
     # Create a list of ticker symbols (the keys from the stock_symbols dictionary)
-    tickers = list(stock_datas.values())
-    
+    tickers = [ticker for data in stock_datas.values() for ticker in data.values() if ticker]
+
     # Fetch stock data for all tickers at once using yfinance
     try:
-        data = yf.download(tickers, period="1d")['Close']  # Fetch closing prices for the last day
+        yahoo_data = yf.download(tickers, period="1d")['Close']  # Fetch closing prices for the last day
 
         # Loop through each stock and store its closing price in the stock_data dictionary
-        for symbol, ticker in stock_datas.items():
-            if ticker in data.columns:  # Check if data for this ticker exists in the dataframe
-                stock_prices[symbol] = float(data[ticker].iloc[-1])  # Get the most recent closing price
+        for data in stock_datas.values():
+            (symbol, ticker) = next(iter(data.items()))
+            if ticker in yahoo_data.columns:  # Check if data for this ticker exists in the dataframe
+                stock_prices[symbol] = float(yahoo_data[ticker].iloc[-1])  # Get the most recent closing price
             else:
-                stock_prices[symbol] = None  # If no data found, store None
+                stock_prices[symbol] = None
 
     except Exception as e:
         print(f"Error occurred: {e}")
@@ -46,34 +49,31 @@ def fetch_stock_prices(stock_datas):
     return stock_prices
 
 
-def get_stock_symbols(sheet, stock_name_column_index, stock_tickers):
+def get_stock_symbols(sheet, column, stock_tickers):
     # Get the stock symbols starting from the second row in the first column (column A)
-    stock_symbols = sheet.col_values(stock_name_column_index)[1:]  # Skip the header (row 1)
-    stock_datas = {}
-    for symbol in stock_symbols:
+    stock_symbols = sheet.col_values(column)[1:]  # Skip the header (row 1)
+    stock_datas = OrderedDict()
+    for row, symbol in enumerate(stock_symbols, start=2):
         ticker = stock_tickers.get(symbol)
-        if ticker:
-            stock_datas.setdefault(symbol, ticker)
+        data = {symbol: ticker}
+        stock_datas[row] = {symbol: ticker}
     return stock_datas
 
 
-def update_google_sheet(sheet, stock_price_column_index, stock_prices):
+def update_google_sheet(sheet, column, stock_tickers, stock_prices):
     # Prepare a list to store cell objects to update
     cells_to_update = []
-    
-    # Loop through the stock prices to prepare cell objects
-    for i, (symbol, price) in enumerate(stock_prices.items(), start=2):  # start=2 to skip header row
-        if price is not None:
-            # Format price with 'RM' prefix, comma delimiter, and 2 decimal places
+
+    for row, stock_data in stock_tickers.items():
+        symbol = next(iter((stock_data.keys())))
+        price = stock_prices.get(symbol)
+        if price:
             formatted_price = f"{price:,.2f}"  # Limit to 2 decimal places
-        else:
-            # If no price data, show 'No data' instead of None
-            formatted_price = "No data"
-        
-        # Create the cell object and append it to the list (column 10 is the target column for stock prices)
-        cell = sheet.cell(i, stock_price_column_index)  # Get the cell object at row i and column 10
-        cell.value = formatted_price
-        cells_to_update.append(cell)  # Add the cell to the update list
+
+            # Create the cell object and append it to the list (column 10 is the target column for stock prices)
+            cell = sheet.cell(row, column)
+            cell.value = formatted_price
+            cells_to_update.append(cell)  # Add the cell to the update list
     
     # Update all cells at once
     sheet.update_cells(cells_to_update)  # Efficient batch update
@@ -111,7 +111,7 @@ def main():
         stock_prices = fetch_stock_prices(stock_tickers)
 
         # Update Google Sheets
-        update_google_sheet(sheet, STOCK_PRICE_COLUMN_INDEX, stock_prices)
+        update_google_sheet(sheet, STOCK_PRICE_COLUMN_INDEX, stock_prices, stock_prices)
     else:
         raise KeyError(f'Tab "{SHEET_TAB_NAME}" does not exist!')
 
