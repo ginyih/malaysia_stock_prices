@@ -79,7 +79,6 @@ def update_google_sheet(sheet, stock_price_column_index, stock_prices):
     print("Google Sheet updated successfully!")
 
 
-
 def main():
     # Load configuration
     config = load_config()
@@ -87,6 +86,7 @@ def main():
     # Retrieve the stock tickers and column index
     STOCK_TICKERS = config.get("STOCK_TICKERS")
     SHEET_NAME = config.get("GOOGLE_SHEET_NAME")
+    SHEET_TAB_NAME = config.get("SHEET_TAB_NAME")
     STOCK_NAME_COLUMN_INDEX = config.get("STOCK_NAME_COLUMN_INDEX")
     STOCK_PRICE_COLUMN_INDEX = config.get("STOCK_PRICE_COLUMN_INDEX")
 
