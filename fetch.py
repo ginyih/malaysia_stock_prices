@@ -1,7 +1,6 @@
 import yfinance as yf
 import gspread
 import json
-
 from collections import OrderedDict
 from oauth2client.service_account import ServiceAccountCredentials
 
@@ -40,8 +39,6 @@ def fetch_stock_prices(stock_datas):
             (symbol, ticker) = next(iter(data.items()))
             if ticker in yahoo_data.columns:  # Check if data for this ticker exists in the dataframe
                 stock_prices[symbol] = float(yahoo_data[ticker].iloc[-1])  # Get the most recent closing price
-            else:
-                stock_prices[symbol] = None
 
     except Exception as e:
         print(f"Error occurred: {e}")
@@ -81,6 +78,7 @@ def update_google_sheet(sheet, column, stock_tickers, stock_prices):
     print("Google Sheet updated successfully!")
 
 
+
 def main():
     # Load configuration
     config = load_config()
@@ -102,7 +100,7 @@ def main():
         if sheet_tab.title == SHEET_TAB_NAME:
             sheet = sheet_tab
             break
-
+    
     if sheet:
         # Get stock names from google sheet (column 1)
         stock_tickers = get_stock_symbols(sheet, STOCK_NAME_COLUMN_INDEX, STOCK_TICKERS)
@@ -111,7 +109,7 @@ def main():
         stock_prices = fetch_stock_prices(stock_tickers)
 
         # Update Google Sheets
-        update_google_sheet(sheet, STOCK_PRICE_COLUMN_INDEX, stock_prices, stock_prices)
+        update_google_sheet(sheet, STOCK_PRICE_COLUMN_INDEX, stock_tickers, stock_prices)
     else:
         raise KeyError(f'Tab "{SHEET_TAB_NAME}" does not exist!')
 
