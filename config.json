@@ -1,7 +1,8 @@
 {
     "GOOGLE_SHEET_NAME": "Malaysia Stock Prices",
+    "SHEET_TAB_NAME": "A",
     "STOCK_NAME_COLUMN_INDEX": 2,
-    "STOCK_PRICE_COLUMN_INDEX": 10,
+    "STOCK_PRICE_COLUMN_INDEX": 11,
     "STOCK_TICKERS": {
         "CIMB": "1023.KL",
         "BURSA": "^KLSE",
