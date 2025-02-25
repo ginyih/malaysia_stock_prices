@@ -87,7 +87,7 @@ Fetches the latest stock prices of Malaysian stocks and stores them in a Google 
    ```
 
 ## Note
-After setting everything up, on every consecutive script run you just have to start from:
+After setting everything up, on every consecutive script run you can just execute `fetch.bat` file by double click or alternatively by using the Command Prompt:
    - Activate venv from step 5 above.
    - Execute fetch.py from step 6 above.
    ```
