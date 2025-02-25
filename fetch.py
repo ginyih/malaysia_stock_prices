@@ -51,9 +51,9 @@ def get_stock_symbols(sheet, stock_name_column_index, stock_tickers):
     stock_symbols = sheet.col_values(stock_name_column_index)[1:]  # Skip the header (row 1)
     stock_datas = {}
     for symbol in stock_symbols:
-    	ticker = stock_tickers.get(symbol)
-    	if ticker:
-        	stock_datas.setdefault(symbol, ticker)
+        ticker = stock_tickers.get(symbol)
+        if ticker:
+            stock_datas.setdefault(symbol, ticker)
     return stock_datas
 
 
@@ -95,13 +95,13 @@ def main():
     # Authenticate and get the Google Sheets client
     client = authenticate_google_sheets()
     
-	# Open your sheet (replace with your actual sheet name)
-	sheet = None
-	all_sheets = client.open(SHEET_NAME)  # Open the spreadsheet by name
-	for sheet_tab in all_sheets.worksheets():
-		if sheet_tab.title == "A":
-			sheet = sheet_tab
-			break
+    # Open your sheet (replace with your actual sheet name)
+    sheet = None
+    all_sheets = client.open(SHEET_NAME)  # Open the spreadsheet by name
+    for sheet_tab in all_sheets.worksheets():
+        if sheet_tab.title == "A":
+            sheet = sheet_tab
+            break
     
     # Get stock names from google sheet (column 1)
     stock_tickers = get_stock_symbols(sheet, STOCK_NAME_COLUMN_INDEX, STOCK_TICKERS)
